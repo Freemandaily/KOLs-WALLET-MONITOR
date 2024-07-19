@@ -7,11 +7,11 @@ from telegram.constants import ParseMode
 
 
 print('Updated 6 for Wisdom-Ethereum')
-connect = Web3(Web3.HTTPProvider('https://mainnet.infura.io/v3/d049a2241d97413da17d774171eb0edb'))
+connect = Web3(Web3.HTTPProvider('https://mainnet.infura.io/v3/YOU-INFURA-KEY'))
 
 class maticWork:
     def __init__(self) -> None:
-        self.EtherKey = '8TSUD2IHRGJ4ITVIAYEXNCAWE1ZV3U9J4I'
+        self.EtherKey = 'YOUR-EXPLORER-KEY[ANY EVM EXPLORER]'
         self.offChain = 0
         self.Onchain = []
 
@@ -176,15 +176,6 @@ class maticWork:
     
 
     def Alert(self,TransactionType,hash,**kwargs):
-        trackedWallet = self.trackedAddress()
-        sellWallet = [Web3.to_checksum_address('0x47808e7b5167b7e9ae8d5e97Be0B3F3a18F17EbC'),Web3.to_checksum_address('0xDC137634213B5C6DF372bb3c6097b637B87Fcd07')]
-        for key,value in kwargs.items():
-            if value in trackedWallet:
-                if value in sellWallet:
-                    kwargs[key] = f'SELLER {value[:4]}...{value[38:]}' 
-                else:
-                    kwargs[key] = 'WisdomMatic'
-            
         transactionDetails = [f'{key}: {value}' for key,value in kwargs.items()]
         formatedTransactionDetail = '\n\n'.join(transactionDetails)
         transactionLink = f'https://etherscan.io/tx/{hash}'
@@ -193,22 +184,22 @@ class maticWork:
                     f'Hash: <a href="{transactionLink}">VIEW DETAIL</a>\n\n'\
                     f'{formatedTransactionDetail}'
         
-        bot_token = '6880639936:AAEAz6H3X8cBOP9pNJWh3zljPrtBsQlX4No'
-        # '6880639936:AAEAz6H3X8cBOP9pNJWh3zljPrtBsQlX4No'
-        # 7077989634:AAESHM9LpnMjJv6j8XDQKFt24d2gcrng6m8
+        bot_token = 'YOUR-TELEGRAM-BOT-TOKEN'
+        chatId = 'YOUR-telegram-chat-id'
         async def main():
             try:
                 bot=telegram.Bot(bot_token)
             except:
                 bot=telegram.Bot(bot_token)
             async with bot:
-                await bot.send_message(text=information,parse_mode=ParseMode.HTML,chat_id=963648721)
+                await bot.send_message(text=information,parse_mode=ParseMode.HTML,chat_id=chatId)
         if __name__!='__main__':
             asyncio.run(main())
 
     
     def off_chain(self):
-        bot_token = '6344573464:AAF_dIkl-hJ5aFT_f0IbUMCmwtOhIm41tvc'
+        chatId = 'YOUR-telegram-chat-id'
+        bot_token = 'YOUR-TELEGRAM-BOT-TOKEN'
         async def main():
             try:
                 bot=telegram.Bot(bot_token)
@@ -216,7 +207,7 @@ class maticWork:
                 bot=telegram.Bot(bot_token)
             async with bot:
                 await bot.send_message(text=f'WISDOM-MATIC ETHER OFFCHAIN \n\nBOT_STATUS:ACTIVE',
-                chat_id=963648721)
+                chat_id=chatId)
         if __name__!='__main__':
             asyncio.run(main())
         
