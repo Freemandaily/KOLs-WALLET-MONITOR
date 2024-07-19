@@ -179,7 +179,7 @@ class maticWork:
         transactionDetails = [f'{key}: {value}' for key,value in kwargs.items()]
         formatedTransactionDetail = '\n\n'.join(transactionDetails)
         transactionLink = f'https://etherscan.io/tx/{hash}'
-        information = 'WISDOM-MATIC ETHER TRXN SPOTTED\n\n'\
+        information = 'KOL TRXN SPOTTED\n\n'\
                     f'TRANSACTION TYPE: {TransactionType}\n\n'\
                     f'Hash: <a href="{transactionLink}">VIEW DETAIL</a>\n\n'\
                     f'{formatedTransactionDetail}'
@@ -206,7 +206,7 @@ class maticWork:
             except:
                 bot=telegram.Bot(bot_token)
             async with bot:
-                await bot.send_message(text=f'WISDOM-MATIC ETHER OFFCHAIN \n\nBOT_STATUS:ACTIVE',
+                await bot.send_message(text=f'KOL IS OFFCHAIN \n\nBOT_STATUS:ACTIVE',
                 chat_id=chatId)
         if __name__!='__main__':
             asyncio.run(main())
