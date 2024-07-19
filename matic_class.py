@@ -101,7 +101,7 @@ class maticWork:
 
     def trackedAddress(self):
         TRACKED_WALLET = []
-        with open('MaticEtherWallet.txt','r') as addressFile:
+        with open('KOLWallets.txt','r') as addressFile:
             addresses = addressFile.readlines()
             for address in addresses:
                 address =  connect.to_checksum_address(address[:-1])
