@@ -10,4 +10,8 @@ This bot monitors the onchain activities of the specified wallet addresses, it i
 
 ### Requirements
 - web3.py
-- telegra( Get the telegram token and chatId  from the telegram bot-father, there are easier online guide to that)
+- telegram( Get the telegram token and chatId  from the telegram bot-father, there are easier online guide to that)
+- Addresses you wish to add
+
+  ### Note
+  You all need to setup the bot-token,chatId and the etherscan api key once, you can add more address to the KOLWallets.txt
