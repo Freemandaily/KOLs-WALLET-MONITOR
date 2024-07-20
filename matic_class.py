@@ -1,4 +1,3 @@
-from unittest import result
 from web3 import *
 import time,sys,os
 import requests,json
@@ -10,8 +9,10 @@ print('Updated 6 for Wisdom-Ethereum')
 connect = Web3(Web3.HTTPProvider('https://mainnet.infura.io/v3/YOU-INFURA-KEY'))
 
 class maticWork:
-    def __init__(self) -> None:
-        self.EtherKey = 'YOUR-EXPLORER-KEY[ANY EVM EXPLORER]'
+    def __init__(self,botToken,chatId,key) -> None:
+        self.EtherKey = key
+        self.bot_token = botToken
+        self.chatId = chatId
         self.offChain = 0
         self.Onchain = []
 
@@ -175,6 +176,7 @@ class maticWork:
         return result
     
 
+    
     def Alert(self,TransactionType,hash,**kwargs):
         transactionDetails = [f'{key}: {value}' for key,value in kwargs.items()]
         formatedTransactionDetail = '\n\n'.join(transactionDetails)
@@ -184,30 +186,27 @@ class maticWork:
                     f'Hash: <a href="{transactionLink}">VIEW DETAIL</a>\n\n'\
                     f'{formatedTransactionDetail}'
         
-        bot_token = 'YOUR-TELEGRAM-BOT-TOKEN'
-        chatId = 'YOUR-telegram-chat-id'
         async def main():
             try:
-                bot=telegram.Bot(bot_token)
+                bot=telegram.Bot(self.bot_token)
             except:
-                bot=telegram.Bot(bot_token)
+                bot=telegram.Bot(self.bot_token)
             async with bot:
-                await bot.send_message(text=information,parse_mode=ParseMode.HTML,chat_id=chatId)
+                await bot.send_message(text=information,parse_mode=ParseMode.HTML,chat_id=self.chatId)
         if __name__!='__main__':
             asyncio.run(main())
 
     
     def off_chain(self):
-        chatId = 'YOUR-telegram-chat-id'
-        bot_token = 'YOUR-TELEGRAM-BOT-TOKEN'
         async def main():
             try:
-                bot=telegram.Bot(bot_token)
+                bot=telegram.Bot(self.bot_token)
             except:
-                bot=telegram.Bot(bot_token)
+                bot=telegram.Bot(self.bot_token)
             async with bot:
                 await bot.send_message(text=f'KOL IS OFFCHAIN \n\nBOT_STATUS:ACTIVE',
-                chat_id=chatId)
+                chat_id=self.chatId)
         if __name__!='__main__':
             asyncio.run(main())
+            
         
