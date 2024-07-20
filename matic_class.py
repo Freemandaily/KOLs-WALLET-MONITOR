@@ -6,7 +6,7 @@ from telegram.constants import ParseMode
 
 
 print('Updated 6 for Wisdom-Ethereum')
-connect = Web3(Web3.HTTPProvider('https://mainnet.infura.io/v3/YOU-INFURA-KEY'))
+connect = Web3(Web3.HTTPProvider('https://mainnet.infura.io/v3/723972c109514a08b4afb742fd1447c9'))
 
 class maticWork:
     def __init__(self,botToken,chatId,key) -> None:
